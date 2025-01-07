@@ -82,17 +82,18 @@ export const App: React.FC = () => {
           Reverse
         </button>
 
-        <button
-          type="button"
-          className={cn('button', 'is-danger', { 'is-light': true })}
-          onClick={() => {
-            setSortType('');
-            setIsReversed(false);
-          }}
-          disabled={!shouldShowReset}
-        >
-          Reset
-        </button>
+        {shouldShowReset && (
+          <button
+            type="button"
+            className={cn('button', 'is-danger', { 'is-light': true })}
+            onClick={() => {
+              setSortType('');
+              setIsReversed(false);
+            }}
+          >
+            Reset
+          </button>
+        )}
       </div>
 
       <ul>
