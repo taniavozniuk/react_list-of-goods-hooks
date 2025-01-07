@@ -15,6 +15,41 @@ export const goodsFromServer = [
   'Garlic',
 ];
 
+interface Post {
+  arr: number[];
+}
+
+interface Reversed {
+  reversed: boolean;
+}
+
+function applySort(
+  arr: Post[],
+  sortingType: string,
+  reversed: Reversed,
+): Post[] {
+  const sortedArray = [...arr];
+
+  switch (sortingType) {
+    case 'alphabet':
+      sortedArray.sort((a, b) => a.localeCompare(b));
+      break;
+    case 'length': {
+      sortedArray.sort((a, b) => a.length - b.length);
+      break;
+    }
+
+    default:
+      break;
+  }
+
+  if (reversed) {
+    sortedArray.reverse();
+  }
+
+  return sortedArray;
+}
+
 export const App: React.FC = () => {
   return (
     <div className="section content">
