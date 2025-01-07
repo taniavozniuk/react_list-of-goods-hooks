@@ -18,14 +18,10 @@ export const goodsFromServer = [
 
 type GoodList = string[];
 
-interface Reversed {
-  reversed: boolean;
-}
-
 function applySort(
   arr: GoodList,
   sortingType: string,
-  reversed: Reversed,
+  reversed: boolean,
 ): GoodList {
   const sortedArray = [...arr];
 
